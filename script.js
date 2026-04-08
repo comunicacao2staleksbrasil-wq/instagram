@@ -1,7 +1,7 @@
 /* ----------------------------------------------------------
    State – persisted in localStorage
 ---------------------------------------------------------- */
-let employees = JSON.parse(localStorage.getItem('employees') || 'null') || [
+let employees = JSON.parse(localStorage.getItem('employees')) || [
   { name: 'Eduarda' },
   { name: 'Isabelle' },
   { name: 'Aline' }
@@ -288,7 +288,7 @@ function renderCalendar() {
       const statusText = document.createElement('div');
       statusText.className = `status-label ${getStatusClass(entry.status)}`;
       if (entry.status === 'on-time') statusText.textContent = '🟢 Pontuou no horário';
-      else if (entry.status === 'late')   statusText.textContent = '🟠 Fora do horário';
+      else if (entry.status === 'late') statusText.textContent = '🟠 Fora do horário';
       else if (entry.status === 'absent') statusText.textContent = '🔴 Não pontuou';
       else {
         statusText.textContent = '⏳ Aguardando';
@@ -346,7 +346,7 @@ function simulateSecullumSync() {
 function attachEvents() {
   // Nova Escala – advance to next month with fairness algorithm
   newScheduleButton.addEventListener('click', () => {
-    const nextM = currentMonth === 11 ? 0  : currentMonth + 1;
+    const nextM = currentMonth === 11 ? 0 : currentMonth + 1;
     const nextY = currentMonth === 11 ? currentYear + 1 : currentYear;
     const key = `${nextY}-${nextM}`;
     if (scheduleData[key] && scheduleData[key].length > 0) {
