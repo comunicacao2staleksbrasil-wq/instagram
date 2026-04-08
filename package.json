@@ -1,1 +1,7 @@
+git clone https://github.com/comunicacao2staleksbrasil-wq/instagram.git
+cd instagram
+# Editar os arquivos que mostrei acima
+git add .
+git commit -m "Fix: Update files for Render deployment"
+git push
 {"name":"escala-instagram","version":"1.0.0","description":"Escala do Instagram B2PRO","main":"server.js","engines":{"node":"22.x"},"scripts":{"start":"node server.js","dev":"node server.js"},"dependencies":{"express":"^4.18.2"}}
