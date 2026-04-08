@@ -298,7 +298,7 @@ day-cell {
   width: fit-content;
 }
 
-..status-green { background: rgba(35,194,124,0.18); color: #23c27c; border: 1px solid rgba(35,194,124,0.3); }
+.status-green { background: rgba(35,194,124,0.18); color: #23c27c; border: 1px solid rgba(35,194,124,0.3); }
 .status-orange { background: rgba(242,157,63,0.18); color: #f29d3f; border: 1px solid rgba(242,157,63,0.3); }
 .status-red { background: rgba(224,63,74,0.18); color: #e03f4a; border: 1px solid rgba(224,63,74,0.3); }
 .status-pending { background: rgba(255,255,255,0.08); color: #ccc; border: 1px solid rgba(255,255,255,0.14); }
