@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Escala Instagram B2PRO</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(180deg, #060606 0%, #090909 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Inter, sans-serif;
+      color: #f4f4f4;
+    }
+    .login-container {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      padding: 48px 32px;
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+    h1 { margin: 0 0 32px; font-size: 2rem; }
+    .form-group { margin-bottom: 20px; text-align: left; }
+    label { display: block; margin-bottom: 8px; font-weight: 600; }
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.04);
+      color: #f4f4f4;
+      font-size: 1rem;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #23c27c 0%, #1a9d63 100%);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    button:hover { opacity: 0.9; }
+    .error { color: #ff8a8f; margin-top: 10px; }
+    .help-text { margin-top: 20px; color: #aaa; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>🔐 Escala Instagram</h1>
+    
+    <form id="loginForm">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="seu@email.com" required />
+      </div>
+      
+      <div class="form-group">
+        <label>Senha</label>
+        <input type="password" id="password" placeholder="••••••••" required />
+      </div>
+      
+      <button type="submit">Entrar</button>
+      <div id="error" class="error"></div>
+    </form>
+
+    <p class="help-text">
+      📧 marketing1@b2pro.com.br<br/>
+      🔐 B2PRO@2024Marketing
+    </p>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      
+      // Credenciais fixas (sem backend)
+      if ((email === 'marketing1@b2pro.com.br' && password === 'B2PRO@2024Marketing') ||
+          (email === 'belcompany.rafael@gmail.com' && password === 'Rafael@2024Admin')) {
+        localStorage.setItem('user', email);
+        window.location.href = '/dashboard.html';
+      } else {
+        document.getElementById('error').textContent = 'Email ou senha incorretos!';
+      }
+    });
+
+    // Se já está logado, vai pro dashboard
+    if (localStorage.getItem('user')) {
+      window.location.href = '/dashboard.html';
+    }
+  </script>
+</body>
+</html>
