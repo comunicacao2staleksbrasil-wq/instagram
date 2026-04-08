@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - Escala Instagram B2PRO</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="topbar">
+      <div class="brand">
+        <div>
+          <p class="subtitle">B2PRO Marketing</p>
+          <h1>📸 Escala Instagram</h1>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button class="outline-button" id="newSchedule">🔄 Nova Escala</button>
+        <button class="outline-button" id="syncStatus">🔗 Sincronizar Secullum</button>
+        <button class="pdf-button" id="generatePdf">📄 Exportar PDF</button>
+        <button class="outline-button" id="logoutBtn">🚪 Sair</button>
+      </div>
+    </div>
+
+    <div class="layout-grid">
+      <div>
+        <div class="card">
+          <h2>👥 Colaboradoras</h2>
+          <div class="employee-list" id="employeeList"></div>
+          <div class="employee-actions">
+            <button class="outline-button" id="addCollaborator">➕ Adicionar</button>
+            <button class="secondary-button" id="saveTeam">💾 Salvar Equipe</button>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:24px;">
+          <h2>✏️ Ajustar Escala</h2>
+          <label style="display:block;margin-bottom:4px;font-size:0.9rem;">Sábado</label>
+          <select class="input-select" id="assignmentDay"></select>
+          <label style="display:block;margin:12px 0 4px;font-size:0.9rem;">Colaboradora</label>
+          <select class="input-select" id="assignmentEmployee"></select>
+          <label style="display:block;margin:12px 0 4px;font-size:0.9rem;">Status</label>
+          <select class="input-select" id="assignmentStatus">
+            <option value="pending">⏳ Aguardando</option>
+            <option value="on-time">🟢 Pontuou no horário</option>
+            <option value="late">🟠 Fora do horário</option>
+            <option value="absent">🔴 Não pontuou</option>
+          </select>
+          <div style="margin-top:16px;">
+            <button class="secondary-button" id="saveAssignment" style="width:100%;">💾 Salvar Ajuste</button>
+          </div>
+        </div>
+
+        <div class="card card-notes" style="margin-top:24px;">
+          <h2>📋 Legenda</h2>
+          <div class="legend-item"><span class="badge badge-green"></span> Verde: pontuou no horário</div>
+          <div class="legend-item"><span class="badge badge-orange"></span> Laranja: fora do horário</div>
+          <div class="legend-item"><span class="badge badge-red"></span> Vermelho: não pontuou</div>
+        </div>
+      </div>
+
+      <div class="card calendar-card">
+        <div class="calendar-header">
+          <strong id="monthLabel"></strong>
+          <p class="current-time">Horário de postagem: 11h às 12h</p>
+        </div>
+        <div class="calendar" id="calendar"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+    // Auth check
+    if (!localStorage.getItem('user')) {
+      window.location.href = '/login.html';
+    }
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      localStorage.removeItem('user');
+      window.location.href = '/login.html';
+    });
+  </script>
+  <script src="/script.js"></script>
+</body>
+</html>
