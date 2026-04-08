@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - Escala Instagram B2PRO</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo-mark">
+          <svg width="74" height="74" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="74" height="74" rx="18" fill="rgba(255,255,255,0.06)"/>
+            <text x="37" y="46" text-anchor="middle" font-size="28" fill="#f4f4f4" font-family="Inter,sans-serif" font-weight="700">📸</text>
+          </svg>
+        </div>
+        <div>
+          <p class="subtitle">B2PRO Marketing</p>
+          <h1>Escala Instagram</h1>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button class="pdf-button" id="generatePdf">📄 Exportar PDF</button>
+        <button class="secondary-button" id="newSchedule">🔄 Gerar nova escala</button>
+        <button class="outline-button" onclick="logout()">Sair</button>
+      </div>
+    </header>
+
+    <div class="layout-grid">
+
+      <aside>
+        <div class="card">
+          <h2>👥 Time</h2>
+          <div class="employee-list" id="employeeList"></div>
+          <div class="employee-actions">
+            <button class="outline-button" id="addCollaborator">+ Adicionar</button>
+            <button class="secondary-button" id="saveTeam">💾 Salvar time</button>
+          </div>
+        </div>
+
+        <div class="card card-notes" style="margin-top: 24px;">
+          <h2>📋 Legenda</h2>
+          <div class="legend-item">
+            <span class="badge badge-green"></span>
+            <span>Verde: bateu ponto no horário (11h–12h)</span>
+          </div>
+          <div class="legend-item">
+            <span class="badge badge-orange"></span>
+            <span>Laranja: bateu ponto fora do horário</span>
+          </div>
+          <div class="legend-item">
+            <span class="badge badge-red"></span>
+            <span>Vermelho: não marcou presença</span>
+          </div>
+        </div>
+
+        <div class="card card-adjustments" style="margin-top: 24px;">
+          <h2>✏️ Ajustes</h2>
+          <label>Sábado</label>
+          <select class="input-select" id="assignmentDay"></select>
+          <label style="margin-top: 12px; display: block;">Colaboradora</label>
+          <select class="input-select" id="assignmentEmployee"></select>
+          <label style="margin-top: 12px; display: block;">Status</label>
+          <select class="input-select" id="assignmentStatus">
+            <option value="pending">Aguardando</option>
+            <option value="on-time">Verde</option>
+            <option value="late">Laranja</option>
+            <option value="absent">Vermelho</option>
+          </select>
+          <div class="employee-actions">
+            <button class="secondary-button" id="saveAssignment">💾 Salvar ajuste</button>
+            <button class="outline-button" id="syncStatus">🔁 Sincronizar Secullum</button>
+          </div>
+        </div>
+      </aside>
+
+      <main>
+        <div class="card calendar-card">
+          <div class="calendar-header">
+            <strong id="monthLabel"></strong>
+          </div>
+          <div class="calendar" id="calendar"></div>
+        </div>
+      </main>
+
+    </div>
+  </div>
+
+  <script>
+    if (!localStorage.getItem('user')) {
+      window.location.href = '/login.html';
+    }
+
+    function logout() {
+      localStorage.removeItem('user');
+      window.location.href = '/login.html';
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
