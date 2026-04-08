@@ -1,4 +1,10 @@
-const employees = [
+git clone https://github.com/comunicacao2staleksbrasil-wq/instagram.git
+cd instagram
+# Editar os arquivos que mostrei acima
+git add .
+git commit -m "Fix: Update files for Render deployment"
+git push
+  const employees = [
   { name: 'Eduarda' },
   { name: 'Isabelle' },
   { name: 'Aline' }
