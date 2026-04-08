@@ -244,7 +244,7 @@ a {
 }
 
 .day-name,
-day-cell {
+.day-cell {
   padding: 14px;
   border-radius: 22px;
   min-height: 140px;
@@ -298,7 +298,7 @@ day-cell {
   width: fit-content;
 }
 
-..status-green { background: rgba(35,194,124,0.18); color: #23c27c; border: 1px solid rgba(35,194,124,0.3); }
+.status-green { background: rgba(35,194,124,0.18); color: #23c27c; border: 1px solid rgba(35,194,124,0.3); }
 .status-orange { background: rgba(242,157,63,0.18); color: #f29d3f; border: 1px solid rgba(242,157,63,0.3); }
 .status-red { background: rgba(224,63,74,0.18); color: #e03f4a; border: 1px solid rgba(224,63,74,0.3); }
 .status-pending { background: rgba(255,255,255,0.08); color: #ccc; border: 1px solid rgba(255,255,255,0.14); }
@@ -323,4 +323,71 @@ day-cell {
   .layout-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Month navigation */
+.month-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-btn {
+  padding: 6px 14px !important;
+  border-radius: 10px !important;
+  font-size: 0.9rem;
+}
+
+/* Drag and drop */
+.employee-card {
+  cursor: grab;
+}
+
+.employee-card.dragging {
+  opacity: 0.45;
+  cursor: grabbing;
+}
+
+.day-cell.drag-over {
+  border-color: rgba(35, 194, 124, 0.55) !important;
+  background: rgba(35, 194, 124, 0.07) !important;
+}
+
+/* Assignment chip inside calendar */
+.assignment-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  padding: 6px 10px 6px 12px;
+  background: rgba(35, 194, 124, 0.12);
+  border: 1px solid rgba(35, 194, 124, 0.28);
+  border-radius: 12px;
+  cursor: grab;
+  user-select: none;
+}
+
+.assignment-wrap:active {
+  cursor: grabbing;
+}
+
+.assignment {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #23c27c;
+}
+
+.delete-assignment-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  padding: 0 0 0 8px;
+  font-size: 0.75rem;
+  line-height: 1;
+  transition: color 0.15s ease;
+}
+
+.delete-assignment-btn:hover {
+  color: #e03f4a;
 }
