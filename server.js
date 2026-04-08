@@ -5,15 +5,6 @@ const app = express();
 app.use(express.static(path.join(__dirname)));
 
 app.get('/', (req, res) => {
-    const user = req.query.user || localStorage?.getItem('user');
-    if (user) {
-        res.sendFile(path.join(__dirname, 'dashboard.html'));
-    } else {
-        res.sendFile(path.join(__dirname, 'login.html'));
-    }
-});
-
-app.get('/login.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'login.html'));
 });
 
