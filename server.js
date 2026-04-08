@@ -3,6 +3,8 @@ const path = require('path');
 const app = express();
 
 app.use(express.static(path.join(__dirname), { index: false }));
+app.use('/vendor/html2canvas.min.js', express.static(path.join(__dirname, 'node_modules/html2canvas/dist/html2canvas.min.js')));
+app.use('/vendor/jspdf.umd.min.js', express.static(path.join(__dirname, 'node_modules/jspdf/dist/jspdf.umd.min.js')));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'login.html'));
